@@ -9,6 +9,15 @@ public class Grade {
 	private BigDecimal nbHeuresBase;
 	private BigDecimal tauxBase;
 	
+	public Grade() {	}
+	
+	public Grade(int id, String code, BigDecimal nbHeuresBase, BigDecimal tauxBase) {
+		this.id = id;
+		this.code = code;
+		this.nbHeuresBase = nbHeuresBase;
+		this.tauxBase = tauxBase;
+	}
+	
 	public String getCode() {
 		return code;
 	}

@@ -12,14 +12,12 @@ import dev.paie.util.PaieUtils;
 
 @Service
 public class CalculerRemunerationServiceSimple implements CalculerRemunerationService {
-
+	
 	@Autowired private PaieUtils paieUtils;
 	
-	@Autowired private Grade grade;
-
 	@Override
 	public ResultatCalculRemuneration calculer(BulletinSalaire bulletin) {
-		String salaireBase = paieUtils.formaterBigDecimal(grade.getNbHeuresBase().multiply((grade.getTauxBase())));
+		String salaireBase = paieUtils.formaterBigDecimal(bulletin.getRemunerationEmploye().getGrade().getNbHeuresBase().multiply((bulletin.getRemunerationEmploye().getGrade().getTauxBase())));
 		String salaireBrut = paieUtils.formaterBigDecimal((new BigDecimal(salaireBase)).add(bulletin.getPrimeExceptionnelle()));
 		
 		String totalRetenueSalarial = paieUtils.formaterBigDecimal(

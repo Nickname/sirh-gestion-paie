@@ -2,14 +2,37 @@ package dev.paie.entite;
 
 import java.math.BigDecimal;
 
+import javax.persistence.*;
+
+@Entity
+@NamedQueries({
+@NamedQuery(name="cotisation.findAll", query="from Cotisation"),
+@NamedQuery(name="cotisation.findByCode", query="from Cotisation where code=:code")
+})
+@Table(name="cotisation")
 public class Cotisation {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private Integer id;
+	
+	@Column(name="code")
 	private String code;
+	@Column(name="libelle")
 	private String libelle;
+	@Column(name="taux_salarial")
 	private BigDecimal tauxSalarial;
+	@Column(name="taux_pational")
 	private BigDecimal tauxPatronal;
 	
+	public Cotisation() {	}
+	
+	public Cotisation(String code, String libelle, BigDecimal tauxSalarial, BigDecimal tauxPatronal) {
+		this.code = code;
+		this.libelle = libelle;
+		this.tauxSalarial = tauxSalarial;
+		this.tauxPatronal = tauxPatronal;
+	}
 	
 	public String getCode() {
 		return code;
@@ -42,9 +65,5 @@ public class Cotisation {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
-	
-	
 
 }
