@@ -11,6 +11,7 @@ import javax.persistence.*;
 })
 @Table(name="cotisation")
 public class Cotisation {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -18,12 +19,19 @@ public class Cotisation {
 	
 	@Column(name="code")
 	private String code;
+	
 	@Column(name="libelle")
 	private String libelle;
+	
 	@Column(name="taux_salarial")
 	private BigDecimal tauxSalarial;
+	
 	@Column(name="taux_pational")
 	private BigDecimal tauxPatronal;
+	
+	@ManyToOne
+	@JoinColumn(name="profil_remuneration_id")
+	private ProfilRemuneration profilRemuneration;
 	
 	public Cotisation() {	}
 	
@@ -37,6 +45,7 @@ public class Cotisation {
 	public String getCode() {
 		return code;
 	}
+	
 	public void setCode(String code) {
 		this.code = code;
 	}
@@ -44,26 +53,41 @@ public class Cotisation {
 	public String getLibelle() {
 		return libelle;
 	}
+	
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	
 	public BigDecimal getTauxSalarial() {
 		return tauxSalarial;
 	}
+	
 	public void setTauxSalarial(BigDecimal tauxSalarial) {
 		this.tauxSalarial = tauxSalarial;
 	}
+	
 	public BigDecimal getTauxPatronal() {
 		return tauxPatronal;
 	}
+	
 	public void setTauxPatronal(BigDecimal tauxPatronal) {
 		this.tauxPatronal = tauxPatronal;
 	}
+	
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public ProfilRemuneration getProfilRemuneration() {
+		return profilRemuneration;
+	}
+
+	public void setProfilRemuneration(ProfilRemuneration profilRemuneration) {
+		this.profilRemuneration = profilRemuneration;
 	}
 
 }

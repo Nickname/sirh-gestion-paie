@@ -2,17 +2,32 @@ package dev.paie.entite;
 
 import java.util.List;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="profil_remuneration")
 public class ProfilRemuneration {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private Integer id;
+	@Column(name="code")
 	private String code;
-
+	
+	@OneToMany(mappedBy="profilRemuneration")
 	private List<Cotisation> cotisationsNonImposables;
 	
+	@OneToMany(mappedBy="profilRemuneration")
 	private List<Cotisation> cotisationsImposables;
 	
+	@OneToMany(mappedBy="profilRemuneration")
 	private List<Avantage> avantages;
+	
+	@OneToMany(mappedBy="profilRemuneration")
+	private List<RemunerationEmploye> remunerationEmploye;
+	
+	public ProfilRemuneration() {	}
 
 	public Integer getId() {
 		return id;
@@ -52,6 +67,14 @@ public class ProfilRemuneration {
 
 	public void setAvantages(List<Avantage> avantages) {
 		this.avantages = avantages;
+	}
+
+	public List<RemunerationEmploye> getRemunerationEmploye() {
+		return remunerationEmploye;
+	}
+
+	public void setRemunerationEmploye(List<RemunerationEmploye> remunerationEmploye) {
+		this.remunerationEmploye = remunerationEmploye;
 	}
 
 }
