@@ -51,5 +51,8 @@ public class Periode {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
+	public String toString() {
+		return dateDebut.toString() + " - " + dateFin.toString();
+	}
 }

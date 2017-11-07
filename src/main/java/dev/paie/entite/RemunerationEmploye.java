@@ -1,5 +1,6 @@
 package dev.paie.entite;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.*;
@@ -30,7 +31,18 @@ public class RemunerationEmploye {
 	@OneToMany(mappedBy="remunerationEmploye")
 	private List<BulletinSalaire> bulletins;
 	
+	@Column(name="date_creation")
+	private LocalDate dateCreation;
+	
 	public RemunerationEmploye() {	}
+	
+	public RemunerationEmploye(String matricule, Entreprise entreprise, ProfilRemuneration profilRemuneration, Grade grade) {
+		this.matricule = matricule;
+		this.entreprise = entreprise;
+		this.profilRemuneration = profilRemuneration;
+		this.grade = grade;
+		this.dateCreation = LocalDate.now();
+	}
 	
 	public String getMatricule() {
 		return matricule;
@@ -78,6 +90,14 @@ public class RemunerationEmploye {
 
 	public void setBulletins(List<BulletinSalaire> bulletins) {
 		this.bulletins = bulletins;
+	}
+
+	public LocalDate getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(LocalDate dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 }

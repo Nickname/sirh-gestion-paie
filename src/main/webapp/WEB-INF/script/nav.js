@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#bandeau").html(`
+  $("#nav").html(`
     <div id='navigation'>
       <nav class='navbar-nav navbar-dark navbar-expand-lg bg-dark'>
         <a class="navbar-brand" href="#" style="margin-left: 25px;">LOG</a>
@@ -8,11 +8,11 @@ $(document).ready(function(){
         </button>
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav">
-            <li id='collaborateurs' class="nav-item">
-              <a class='nav-link' href='<c:url value='mvc/employes/lister'/>'>Employes</a>
+            <li id='employes' class="nav-item">
+              <a class='nav-link' href='/paie/mvc/employes/lister'>Employes</a>
             </li>
-            <li id='statistiques' class="nav-item">
-              <a class='nav-link' href='<c:url value='mvc/bulletins/lister'/>'>Bulletins</a>
+            <li id='bulletins' class="nav-item">
+              <a class='nav-link' href='/paie/mvc/bulletins/lister'>Bulletins</a>
             </li>
           </ul>
         </div>

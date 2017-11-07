@@ -76,5 +76,9 @@ public class ProfilRemuneration {
 	public void setRemunerationEmploye(List<RemunerationEmploye> remunerationEmploye) {
 		this.remunerationEmploye = remunerationEmploye;
 	}
+	
+	public String toString() {
+		return this.code;
+	}
 
 }

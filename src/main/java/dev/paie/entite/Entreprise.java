@@ -87,4 +87,8 @@ public class Entreprise {
 		this.remunerationEmploye = remunerationEmploye;
 	}
 	
+	public String toString() {
+		return this.denomination;
+	}
+	
 }

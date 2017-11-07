@@ -75,4 +75,8 @@ public class Grade {
 		this.remunerationEmploye = remunerationEmploye;
 	}
 	
+	public String toString() {
+		return this.code + " - " + (this.nbHeuresBase.multiply(this.tauxBase).multiply(new BigDecimal(12))).setScale(0, BigDecimal.ROUND_DOWN) + " € / an";
+	}
+	
 }
