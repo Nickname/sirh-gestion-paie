@@ -38,7 +38,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		
 		<listener-
 		class>org.springframework.web.context.ContextLoaderListener</listener-class>
-		
 		</listener>
 		*/
 		servletContext.addListener(new ContextLoaderListener(webContext));

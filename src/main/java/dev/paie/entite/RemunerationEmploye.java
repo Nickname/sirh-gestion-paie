@@ -1,7 +1,6 @@
 package dev.paie.entite;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -27,12 +26,9 @@ public class RemunerationEmploye {
 	@ManyToOne
 	@JoinColumn(name="grade_id")
 	private Grade grade;
-
-	@OneToMany(mappedBy="remunerationEmploye")
-	private List<BulletinSalaire> bulletins;
 	
 	@Column(name="date_creation")
-	private LocalDate dateCreation;
+	private LocalDateTime dateCreation;
 	
 	public RemunerationEmploye() {	}
 	
@@ -41,7 +37,7 @@ public class RemunerationEmploye {
 		this.entreprise = entreprise;
 		this.profilRemuneration = profilRemuneration;
 		this.grade = grade;
-		this.dateCreation = LocalDate.now();
+		this.dateCreation = LocalDateTime.now();
 	}
 	
 	public String getMatricule() {
@@ -83,20 +79,12 @@ public class RemunerationEmploye {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public List<BulletinSalaire> getBulletins() {
-		return bulletins;
-	}
 
-	public void setBulletins(List<BulletinSalaire> bulletins) {
-		this.bulletins = bulletins;
-	}
-
-	public LocalDate getDateCreation() {
+	public LocalDateTime getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCreation(LocalDate dateCreation) {
+	public void setDateCreation(LocalDateTime dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 	

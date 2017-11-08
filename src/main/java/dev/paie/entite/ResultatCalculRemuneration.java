@@ -13,7 +13,6 @@ public class ResultatCalculRemuneration {
 	
 	private String netAPayer;
 	
-
 	public String getSalaireDeBase() {
 		return salaireDeBase;
 	}

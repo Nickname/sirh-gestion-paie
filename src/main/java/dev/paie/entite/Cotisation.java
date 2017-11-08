@@ -23,15 +23,11 @@ public class Cotisation {
 	@Column(name="libelle")
 	private String libelle;
 	
-	@Column(name="taux_salarial")
+	@Column(name="taux_salarial", precision=19, scale=6)
 	private BigDecimal tauxSalarial;
 	
-	@Column(name="taux_pational")
+	@Column(name="taux_pational", precision=19, scale=6)
 	private BigDecimal tauxPatronal;
-	
-	@ManyToOne
-	@JoinColumn(name="profil_remuneration_id")
-	private ProfilRemuneration profilRemuneration;
 	
 	public Cotisation() {	}
 	
@@ -80,14 +76,6 @@ public class Cotisation {
 	
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public ProfilRemuneration getProfilRemuneration() {
-		return profilRemuneration;
-	}
-
-	public void setProfilRemuneration(ProfilRemuneration profilRemuneration) {
-		this.profilRemuneration = profilRemuneration;
 	}
 
 }

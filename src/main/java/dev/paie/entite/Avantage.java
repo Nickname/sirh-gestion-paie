@@ -22,10 +22,6 @@ public class Avantage {
 	@Column(name="montant")
 	private BigDecimal montant;
 	
-	@ManyToOne
-	@JoinColumn(name="profil_remuneration_id")
-	private ProfilRemuneration profilRemuneration;
-	
 	public Avantage() {	}
 	
 	public String getCode() {
@@ -59,12 +55,5 @@ public class Avantage {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public ProfilRemuneration getProfilRemuneration() {
-		return profilRemuneration;
-	}
-
-	public void setProfilRemuneration(ProfilRemuneration profilRemuneration) {
-		this.profilRemuneration = profilRemuneration;
-	}
+	
 }

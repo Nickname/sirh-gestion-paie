@@ -12,22 +12,32 @@ public class ProfilRemuneration {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
+	
 	@Column(name="code")
 	private String code;
 	
-	@OneToMany(mappedBy="profilRemuneration")
+	@ManyToMany
+	@JoinTable(name="profilremu_cotisationNI")
 	private List<Cotisation> cotisationsNonImposables;
 	
-	@OneToMany(mappedBy="profilRemuneration")
+	@ManyToMany
+	@JoinTable(name="profilremu_cotisationI")
 	private List<Cotisation> cotisationsImposables;
 	
-	@OneToMany(mappedBy="profilRemuneration")
+	@ManyToMany
 	private List<Avantage> avantages;
 	
 	@OneToMany(mappedBy="profilRemuneration")
 	private List<RemunerationEmploye> remunerationEmploye;
 	
 	public ProfilRemuneration() {	}
+	
+	public ProfilRemuneration(String code, List<Cotisation> cotisationsNonImposables, List<Cotisation> cotisationsImposables, List<Avantage> avantages) {
+		this.code = code;
+		this.cotisationsNonImposables = cotisationsNonImposables;
+		this.cotisationsImposables = cotisationsImposables;
+		this.avantages = avantages;
+	}
 
 	public Integer getId() {
 		return id;

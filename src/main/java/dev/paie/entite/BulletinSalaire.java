@@ -1,6 +1,7 @@
 package dev.paie.entite;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -14,7 +15,6 @@ public class BulletinSalaire {
 	private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name="remuneration_id")
 	private RemunerationEmploye remunerationEmploye;
 	
 	@OneToOne
@@ -23,12 +23,16 @@ public class BulletinSalaire {
 	@Column(name="prime_exceptionnelle")
 	private BigDecimal primeExceptionnelle;
 	
+	@Column(name="date_creation")
+	private LocalDateTime dateCreation;
+	
 	public BulletinSalaire() {	}
 	
 	public BulletinSalaire(RemunerationEmploye remunerationEmploye, Periode periode, BigDecimal primeExceptionnelle) {
 		this.remunerationEmploye = remunerationEmploye;
 		this.periode = periode;
 		this.primeExceptionnelle = primeExceptionnelle;
+		this.dateCreation = LocalDateTime.now();
 	}
 	
 	public RemunerationEmploye getRemunerationEmploye() {
@@ -61,6 +65,14 @@ public class BulletinSalaire {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(LocalDateTime dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 }
